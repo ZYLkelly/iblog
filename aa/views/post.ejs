@@ -1,0 +1,13 @@
+<% include header%>
+<form class="post" method="post">
+    <label >标题：</label><br>
+    <input name="title" type="title" placeholder="请填写标题" required><br>
+    <label >标签：</label><br>
+    <input type="text" name="tag1">
+    <input type="text" name="tag2">
+    <input type="text" name="tag3"><br>
+    <label >内容：</label><br>
+    <textarea name="post" rows="10" cols="100" required></textarea><br>
+    <input type="submit" value="提交">
+</form>
+<% include footer%>

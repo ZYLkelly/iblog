@@ -1,0 +1,40 @@
+<div class="comment">
+
+    <!--留言的展示-->
+    <% post.comments.forEach(function (comment) {%>
+    <p>
+        <%= comment.name%>
+        <span class="info">回复于 <%= comment.time%></span> <br>
+    </p>
+    <p><%- comment.content%></p>
+    <% })%>
+    <!--添加留言的表单-->
+    <% if(user){%>
+    <form action="/comment/<%= post.name%>/<%= post.time.minute%>/<%= post.title%>" method="post">
+        发布人：<%= user.name%> <br>
+        <input type="hidden" name="name" value="<%= user.name%>"><br>
+        <textarea name="content" id="" cols="80" rows="5"></textarea><br>
+        <input type="submit" value="留言">
+    </form>
+    <% }else{%>
+    <form action="" method="post">
+        回应请先 <a href="/login">登录</a>或 <a href="/reg">注册</a><br>
+        <textarea name="content" id="tb" cols="80" rows="5"></textarea><br>
+        <input type="submit" value="留言" id="sb">
+    </form>
+    <% }%>
+</div>
+<script>
+    window.onload = function(){
+        var textarea = document.querySelector('#tb');
+        var button  = document.querySelector('#sb');
+        button.onclick = function(e){
+            e.preventDefault();
+            location.href = '/login';
+        }
+        textarea.onfocus = function(){
+            location.href =  '/login';
+        }
+    }
+</script>
+

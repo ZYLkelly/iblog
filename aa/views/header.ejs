@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <title><%= title%></title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+
+</head>
+<body>
+<div class="img">
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse"
+                        data-target="#example-navbar-collapse">
+                    <span class="sr-only">切换导航</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <img src="https://b-ssl.duitang.com/uploads/item/201605/08/20160508163649_4mQYr.jpeg" alt="">
+                <a class="navbar-brand " href="/" title="首页"><h1 class="active">首页</h1></a>
+            </div>
+            <div class="collapse navbar-collapse" id="example-navbar-collapse">
+                <ul class="nav navbar-nav navbar-right" >
+                    <li><a href="/archive"><span class="glyphicon glyphicon-file"></span>存档</a></li>
+                    <li><a href="/tags"><span class="glyphicon glyphicon-tag"></span>标签</a></li>
+                    <% if(user){%>
+                    <li><a href="/upload"><span class="glyphicon glyphicon-upload"></span>上传</a></li>
+                    <li><a href="/post"><span class="glyphicon glyphicon-edit"></span> 发表</a></li>
+                    <li><a href="/about"><span class="glyphicon glyphicon-edit"></span> 关于</a></li>
+                    <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span> 退出</a></li>
+                    <% }else{%>
+                    <li><a href="/reg"><span class="glyphicon glyphicon-user"></span> 注册</a></li>
+                    <li><a href="/login"><span class="glyphicon glyphicon-log-in"></span> 登录</a></li>
+                    <% }%>
+
+
+                    <span>
+                    <form action="/search" method="GET" class="navbar-form navbar-left" role="search">
+                        <input type="text" class="form-control" name="keyword" placeholder="search" >
+
+                    </form>
+                </span>
+
+
+                </ul>
+            </div>
+
+        </div>
+    </nav>
+    <article>
+        <% if (success) { %>
+        <div><%= success %></div>
+        <% } %>
+        <% if (error) { %>
+        <div><%= error %> </div>
+        <% } %>
+    </article>
+    <script src="http://cdn.static.runoob.com/libs/jquery/2.1.1/jquery.min.js"></script>
+    <script src="http://cdn.static.runoob.com/libs/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+

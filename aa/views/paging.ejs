@@ -1,0 +1,27 @@
+<br />
+
+    <% if (!isFirstPage) { %>
+    <span class="prepage">
+    <a title="上一页" href="?p=<%= page-1 %>">上一页</a>
+    </span>
+    <% } %>
+
+
+    <% if (!isLastPage) { %>
+    <span class="nextpage">
+    <a title="下一页" href="?p=<%= page+1 %>">下一页</a>
+    </span>
+    <% } %>
+
+<script>
+    window.onload=function (){
+        var page=document.querySelectorAll('.page')
+        page.onclick=function (e) {
+            e.preventDefault();
+            page.classList.remove("page");
+            page.classList.add("onpage");
+
+        }
+    }
+
+</script>
